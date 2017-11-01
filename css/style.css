@@ -1,0 +1,86 @@
+/* custom style sheet */
+
+/* main dom elements */
+
+a{
+	color:inherit;
+	text-decoration:none;
+}
+
+/* site heading */
+div.logo-container{
+
+}
+
+#main-logo{
+	height:80px;
+	width:112px;
+	margin-left:11%;
+}
+#main-txt{
+	color:#fff;
+	font-size:0.9rem;
+	width: auto;
+	margin-left:0.9rem;
+}
+nav{
+	background-color: #0F2844 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #FF9F5F;
+}
+
+/* main content */
+h2.display-4{
+	font-weight:bold;
+	color:#00A89E;
+}
+
+
+/* footer */
+
+h3.footer-contact,
+h3.footer-social{
+	color:#FF9F5F;
+	text-decoration:underline;
+}
+
+div.social-box,
+div.contact-box{
+	color:#fff;
+}
+div.social-box{
+	text-align:center;
+}
+h5.contact-header{
+	color:#00A89E;
+}
+footer.py-5.bg-dark{
+	background-color:#0F2844 !important;
+}
+#fb-icon,
+#twitter-icon{
+	padding:1rem 2rem;
+}
+#cp-footer-i{
+	color:#00A89E;
+}
+#cp-footer-a{
+	color:#FF9D69;
+}
+#cp-footer-a,
+#cp-footer-i{
+	font-style:italic;
+}
+
+
+/* media queries */
+
+@media(max-width:992px){
+h1.display-1{
+	font-size:3.75rem;
+	}
+}
+
+
+
