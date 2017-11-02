@@ -22,7 +22,7 @@
 
   </head>
 
-  <body> 
+  <body data-spy="scroll" data-target=".navbar" data-offset="80"> 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
@@ -35,23 +35,38 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">About Us</a>
+              <a class="nav-link" href="#about">About Us</a>
               <span class="sr-only">(current)</span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">How it works</a>
+              <a class="nav-link" href="#process">Our Process</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="#contact">Contact Us</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Get a Quote</a>
-            </li>
+<!--             <li class="nav-item">
+              <a class="nav-link" href="#">Online Quote</a>
+            </li> -->
           </ul>
         </div>
       </div>
     </nav>
-
+    <div id="contactform">
+      <div id="contact-button">   
+        <div class="rotated-text">Online Quote</div>
+      </div>
+      <form>
+        <label for="input">Name:</label>
+        <input type="text"/>
+        <label for="input">Email:</label>
+        <input type="text"/>
+        <label for="input">Phone:</label>
+        <input type="text"/>
+        <label class="txt-area" for="textarea">Description</label>
+        <textarea row="6" col="5"></textarea>
+        <div class="btn-container"><button id="f-submit" class="btn btn-primary">Submit</button></div> 
+      </form> 
+    </div>
     <header class="masthead">
       <div class="overlay">
         <div id="tagline" class="container">
@@ -61,13 +76,12 @@
         </div>
       </div>
     </header>
-
-    <section>
+    <section id="about">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6 order-2">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="images/aboutus.png" alt="">
+              <img class="img-fluid rounded-circle" src="images/aboutus.png" alt="about-pic">
             </div>
           </div>
           <div class="col-md-6 order-1">
@@ -80,12 +94,12 @@
       </div>
     </section>
 
-    <section>
+    <section id="process">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="p-5">
-              <img class="img-fluid rounded-circle" src="images/artist-ourProcess.png" alt="">
+              <img class="img-fluid rounded-circle" src="images/artist-ourProcess.png" alt="process-pic">
             </div>
           </div>
           <div class="col-md-6">
@@ -135,21 +149,26 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer id="contact" class="py-5 bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-md-6 contact-box">
             <h3 class="footer-contact text-center">Contact Us</h3>
             <!-- <br> -->
             <div class="row">
+              <div class="col-md-6 text-left"><h5 class="text-center contact-header"><i class="fa fa-clock-o fa-1x" aria-hidden="true"></i> &nbsp;Hours:</h5></div>
+              <div class="col-md-6">      
+                <p class="text-center">9:00am - 5:00pm</p>
+                <p class="text-center">Monday - Friday</p>
+              </div>
               <div class="col-md-6 text-left"><h5 class="text-center contact-header"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i> &nbsp;Email:</h5></div>
               <div class="col-md-6">      
-                <p class="text-left">isaac.islandapparel@gmail.com</p>
-                <p class="text-left">jun.islandapparel@gmail.com</p>
+                <p class="text-center">isaac.islandapparel@gmail.com</p>
+                <p class="text-center">jun.islandapparel@gmail.com</p>
               </div>
-              <div class="col-md-6 text-left"><h5 class="text-center contact-header"><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Phone:</h5></div>
+              <div class="col-md-6 text-left phone-txt"><h5 class="text-center contact-header"><i class="fa fa-phone-square fa-1x" aria-hidden="true"></i>&nbsp; Phone:</h5></div>
               <div class="col-md-6">      
-                <p class="text-left">(670)288-3441</p>
+                <p class="text-center">(670)288-3441</p>
               </div>
             </div>
             
@@ -177,6 +196,47 @@
           $(this).addClass("active");
         });
       });
+      var easeOutBounce = function (x, t, b, c, d) {
+    if ((t/=d) < (1/2.75)) {
+      return c*(7.5625*t*t) + b;
+    } else if (t < (2/2.75)) {
+      return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+    } else if (t < (2.5/2.75)) {
+      return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+    } else {
+      return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+    }
+}
+
+function Animate(elem, propName, duration, start, end)  {
+    var start_time = new Date().getTime();
+    var interval = setInterval(function() {
+      var current_time = new Date().getTime(),
+        remaining = Math.max(0, start_time + duration - current_time),
+        temp = remaining / duration || 0,
+        percent = 1 - temp;
+
+      if (start_time + duration < current_time) clearInterval(interval);
+
+      var pos = easeOutBounce(null, duration * percent, 0, 1, duration),
+        current = (end - start) * pos + start;
+
+      elem.style[propName] = current + 'px';
+    }, 1);
+  }
+
+var elem = document.getElementById('contactform');
+var opened = false; 
+
+document.getElementById('contact-button').onclick = function() {
+  if (opened) {
+    Animate(elem, 'right', 800, 0, -398);    
+    opened = false;
+  } else {
+    Animate(elem, 'right', 800, -398, 0);
+    opened = true;  
+  }  
+}
     </script>
 
   </body>

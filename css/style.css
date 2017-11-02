@@ -29,11 +29,114 @@ nav{
 .navbar-dark .navbar-nav .nav-link {
     color: #FF9F5F;
 }
+/* contact form */
+#contactform {  
+  width: 400px;
+  right:-398px;
+  height: 500px;
+  margin: 25px 0;
+  position: fixed;
+  box-shadow: 0 0 12px 0 #333;  
+}
+
+#contact-button {
+  width: 5%;
+  padding: 7% 6% 7% 3%;
+  cursor: pointer;
+  margin-left: -41px;
+  /* margin-right: -405px; */
+  margin-top: 40px;
+  font-size: 23px;
+  color: white;
+  position: absolute;
+}
+
+#contactform, #contact-button {
+  margin-top:5em;
+  background-color: #0F2844;
+  border-radius: 15px 0px 0px 15px;
+  border: 5px solid #FF9D69;
+  border-right: none;
+}
+
+.rotated-text {
+    display: inline-block;
+    white-space: nowrap;
+    /* this is for shity "non IE" browsers
+       that dosn't support writing-mode */
+    -webkit-transform: translate(1.1em,0) rotate(0deg);
+       -moz-transform: translate(1.1em,0) rotate(0deg);
+         -o-transform: translate(1.1em,0) rotate(0deg);
+            transform: translate(1.1em,0) rotate(90deg);
+    -webkit-transform-origin: 0 0;
+       -moz-transform-origin: 0 0;
+         -o-transform-origin: 0 0;
+            transform-origin: 0 0;*/
+   /* IE9+ */
+   -ms-transform: none;
+   -ms-transform-origin: none;
+   /* IE8+ */
+   -ms-writing-mode: tb-rl;
+   /* IE7 and below */
+   *writing-mode: tb-rl;
+}
+
+.rotated-text:before {
+    content: "";
+    float: left;
+    margin-top: 100%;
+}
+
+form {
+  width: 100%;
+  padding: 20px;
+}
+
+form input {
+  display: block;
+  border: none;
+  width: 300px;
+  height: 35px; 
+  margin: 5px 30px;  
+}
+
+form textarea {
+  width: 300px;
+  margin: 2px 30px 1em 30px;
+  height: 100px;
+}
+
+form textarea, form input { 
+  border: 3px solid #00A89E;
+  border-radius: 5px;
+  background: #f2f2f2;  
+}
+label{
+  color:white;
+}
+label.txt-area{
+  margin-top:1em;
+  display:block;
+  color:white;
+  text-align: center;
+}
+button#f-submit{
+  display:block;
+  width:5rem;
+  margin:0 auto;
+}
 
 /* main content */
 h2.display-4{
+	padding-top:0.25em;
 	font-weight:bold;
 	color:#00A89E;
+}
+section#about{
+	padding-top:3.25rem;
+}
+section#process{
+	padding-top:5.45rem;
 }
 
 
@@ -54,6 +157,7 @@ div.social-box{
 }
 h5.contact-header{
 	color:#00A89E;
+	font-size:1.35em;
 }
 footer.py-5.bg-dark{
 	background-color:#0F2844 !important;
@@ -72,7 +176,9 @@ footer.py-5.bg-dark{
 #cp-footer-i{
 	font-style:italic;
 }
-
+div.phone-txt{
+	font-size:90%;
+}
 
 /* media queries */
 
