@@ -34,7 +34,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="active nav-item">
               <a class="nav-link" href="#about">About Us</a>
               <span class="sr-only">(current)</span>
             </li>
@@ -191,6 +191,11 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
+        $("body").on("scroll",function(){
+          if($("li").hasClass("active")){
+            $(this).removeClass("active");
+          }
+        });
         $("li.nav-item").on("click",function(){
           $(this).siblings().removeClass("active");
           $(this).addClass("active");
@@ -219,7 +224,7 @@ function Animate(elem, propName, duration, start, end)  {
       if (start_time + duration < current_time) clearInterval(interval);
 
       var pos = easeOutBounce(null, duration * percent, 0, 1, duration),
-        current = (end - start) * pos + start;
+        current = (end - start) /* * pos */+ start;
 
       elem.style[propName] = current + 'px';
     }, 1);
@@ -230,13 +235,17 @@ var opened = false;
 
 document.getElementById('contact-button').onclick = function() {
   if (opened) {
-    Animate(elem, 'right', 800, 0, -398);    
+    Animate(elem, 'right', 800, 0, -400);    
     opened = false;
   } else {
-    Animate(elem, 'right', 800, -398, 0);
+    Animate(elem, 'right', 800, -400, 0);
+    $(elem).css("z-index",9999);
     opened = true;  
   }  
 }
+
+
+
     </script>
 
   </body>

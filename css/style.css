@@ -29,13 +29,16 @@ nav{
 .navbar-dark .navbar-nav .nav-link {
     color: #FF9F5F;
 }
+
+
+
 /* contact form */
 #contactform {  
   width: 400px;
-  right:-398px;
+  right:-400px;
   height: 500px;
   margin: 25px 0;
-  position: fixed;
+  position:fixed;
   box-shadow: 0 0 12px 0 #333;  
 }
 
